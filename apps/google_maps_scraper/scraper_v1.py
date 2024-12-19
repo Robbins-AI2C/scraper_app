@@ -1,7 +1,10 @@
 from playwright.sync_api import sync_playwright
 from dataclasses import dataclass, asdict, field
+from fastapi import FastAPI
+from pydantic import BaseModel
 import argparse
 import pandas as pd
+
 
 # sets up the data objects to be collected
 @dataclass
@@ -70,14 +73,16 @@ def main():
 
 if __name__ == "__main__":
     
-    parser = argparse.ArgumentParser()
-    parser.add_argument("-s", "--search", type=str)
-    parser.add_argument("-l", "--location", type=str)
-    args = parser.parse_args()
+    # TODO: add location search from frontend search bar
+    
+    # parser = argparse.ArgumentParser()
+    # parser.add_argument("-s", "--search", type=str)
+    # parser.add_argument("-l", "--location", type=str)
+    # args = parser.parse_args()
 
-    if args.location and args.search:
-        search_for = f'{args.search} {args.location}'
-    else:
-        search_for = 'restaurants new york'
+    # if args.location and args.search:
+    #     search_for = f'{args.search} {args.location}'
+    # else:
+    #     search_for = 'restaurants new york'
 
     main()
